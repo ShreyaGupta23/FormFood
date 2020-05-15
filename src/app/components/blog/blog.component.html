@@ -1,0 +1,63 @@
+<div class="card">
+    <div class="col-md-8">
+        <div class="card card-user">
+      
+
+<div class="card-header" style="text-align:center">
+    Share Your Own Recipe!
+</div>
+<div [formGroup]="myForm">
+<div class="row">
+    <div class="col-md-6 pr-1">
+        <div class="form-group">
+  <input type="text" formControlName="name" class="form-control" placeholder="Enter name"
+                aria-label="name" aria-describedby="addon-wrapping">
+            <span
+                *ngIf="myForm.controls['name'].invalid && (myForm.controls['name'].dirty || myForm.controls['name'].touched)"
+                class="alert alert-danger">Name is missing</span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 pr-1">
+        <div class="form-group">
+  <input type="text" formControlName="comments" class="form-control" placeholder="Enter comments"
+                aria-label="comments" aria-describedby="addon-wrapping">
+            <span
+                *ngIf="myForm.controls['comments'].invalid && (myForm.controls['comments'].dirty || myForm.controls['comments'].touched)"
+                class="alert alert-danger">Comment is missing</span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 pr-1">
+        <div class="form-group">
+  <input type="text" formControlName="recipe" class="form-control" placeholder="Enter recipe"
+                aria-label="recipe" aria-describedby="addon-wrapping">
+            <span
+                *ngIf="myForm.controls['recipe'].invalid && (myForm.controls['recipe'].dirty || myForm.controls['recipe'].touched)"
+                class="alert alert-danger">Recipe is missing</span>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-primary" [disabled]="myForm.invalid" (click)="addBlog()">Add blog</button>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<h2>View Blogs</h2>
+<div class="row">
+      
+    <div class="col-sm" *ngFor="let bg of blogs ">
+   <div class="card" style="width: 18rem;" >
+     <div class="card-body">
+       <h5 class="card-title">{{bg.name}}</h5>
+       <p class="card-text">Comments- {{bg.comments}}</p>
+       <p class="card-text">Recipe- {{bg.recipe}}</p>
+     </div>
+   </div>
+   </div>
+   </div>

@@ -1,0 +1,62 @@
+<div class="card">
+    <div class="col-md-8">
+        <div class="card card-user">
+      
+
+<div class="card-header" style="text-align:center">
+    Feedback!
+</div>
+<div [formGroup]="myForm">
+<div class="row">
+    <div class="col-md-6 pr-1">
+        <div class="form-group">
+  <input type="text" formControlName="name" class="form-control" placeholder="Enter name"
+                aria-label="name" aria-describedby="addon-wrapping">
+            <span
+                *ngIf="myForm.controls['name'].invalid && (myForm.controls['name'].dirty || myForm.controls['name'].touched)"
+                class="alert alert-danger">Name is missing</span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 pr-1">
+        <div class="form-group">
+  <input type="text" formControlName="comments" class="form-control" placeholder="Enter comments"
+                aria-label="comments" aria-describedby="addon-wrapping">
+            <span
+                *ngIf="myForm.controls['comments'].invalid && (myForm.controls['comments'].dirty || myForm.controls['comments'].touched)"
+                class="alert alert-danger">Comment is missing</span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 pr-1">
+        <div class="form-group">
+  <input type="text" formControlName="rating" class="form-control" placeholder="Enter rating out of 10"
+                aria-label="rating" aria-describedby="addon-wrapping">
+            <span
+                *ngIf="myForm.controls['rating'].invalid && (myForm.controls['rating'].dirty || myForm.controls['rating'].touched)"
+                class="alert alert-danger">Rating is missing</span>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-primary" [disabled]="myForm.invalid" (click)="addFeedback()">Leave Feedback</button>
+</div>
+
+</div>
+</div>
+</div>
+
+<h2>View Feedback</h2>
+<div class="row">
+      
+    <div class="col-sm" *ngFor="let feed of feedbacks ">
+   <div class="card" style="width: 18rem;" >
+     <div class="card-body">
+       <h5 class="card-title">{{feed.name}}</h5>
+       <p class="card-text">Comments- {{feed.comments}}</p>
+       <p class="card-text">Rating- {{feed.rating}}</p>
+     </div>
+   </div>
+   </div>
+   </div>
